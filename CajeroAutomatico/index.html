@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cajero Automático</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="claro">
+
+    <main>
+        <h1>BancoAliado</h1>
+        <h1>Cajero Automático</h1>
+        <!-- Sección de Login -->
+    <section id="seccionLogin">
+        <h2>Iniciar sesión</h2>
+        <form id="formLogin">
+            <input type="text" id="usuarioLogin" placeholder="Usuario" required />
+            <input type="password" id="passwordLogin" placeholder="Contraseña" required />
+            <button type="submit" id="btnLogin">Iniciar sesión</button>
+        </form>
+        <button id="btnMostrarRegistro">Registrarse</button>
+        <button id="btnCambiarTema">Cambiar tema</button>
+    </section>
+
+    <!-- Sección de Registro -->
+    <section id="seccionRegistro" class="oculto">
+        <h2>Registrar Cuenta</h2>
+        <form id="formRegistro">
+            <input type="text" id="usuarioRegistro" placeholder="Usuario" required />
+            <input type="text" id="idRegistro" placeholder="ID" required />
+            <input type="email" id="correoRegistro" placeholder="Correo" required />
+            <input type="password" id="passwordRegistro" placeholder="Contraseña (4 dígitos)" required />
+            <input type="password" id="passwordConfirmacion" placeholder="Confirmar Contraseña" required />
+            <label>
+                <input type="radio" name="tipoCuenta" value="ahorro" required /> Ahorro
+            </label>
+            <label>
+                <input type="radio" name="tipoCuenta" value="corriente" required /> Corriente
+            </label>
+            <button type="submit">Registrar</button>
+        </form>
+        <button id="btnRegresarLogin">Volver a atrás</button>
+
+    </section>
+
+    <!-- Sección Menú Principal -->
+    <section id="seccionMenuPrincipal" class="oculto">
+        <h2>Hola, <span id="nombreUsuario"></span></h2>
+        <p><strong>Tipo de cuenta:</strong> <span id="tipoCuenta"></span></p>
+        <p><strong>Saldo actual:</strong><span id="saldoCuenta"></span></p>
+
+        <h3>Opciones:</h3>
+        <section class="grupo-botones">
+            <button id="btnConsignar">Consignar dinero</button>
+            <button id="btnRetirar">Retirar dinero</button>
+            <button id="btnTransferir">Transferir dinero</button>
+            <button id="btnVerMovimientos">Ver movimientos</button>
+        </section>
+
+        <h3>Cuenta:</h3>
+        <section class="grupo-botones">
+            <button id="btnCambiarPassword">Cambiar contraseña</button>
+            <button id="btnCambiarTema1">Cambiar tema</button>
+            <button id="btnCerrarSesion">Cerrar sesión</button>
+        </section>
+    </section>
+
+    <section id="mensajeSistema" class="mensaje-sistema oculto"></section>
+
+    <!-- seccion para consignar dinero-->
+    <section id="seccionConsignar" class="oculto">
+        <h2>Consignación</h2>
+        <form id="formConsignacionMonto">
+            <input
+                type="number"
+                id="inputMontoConsignar"
+                placeholder="Ingrese monto"
+                min="0.01"
+                step="0.01"
+                required
+            />
+            <button type="submit">Confirmar</button>
+            <button type="button" id="btnCancelarConsignacion">Cancelar</button>
+        </form>
+    </section>
+
+    <!-- seccion para retirar dinero-->
+    <section id="seccionRetirar" class="oculto">
+        <h2>Retirar</h2>
+        <form id="formMontoRetiro">
+            <input
+                type="number"
+                id="inputMontoRetirar"
+                placeholder="Ingrese monto"
+                min="0.01"
+                step="0.01"
+                required
+            />
+            <button type="submit">Confirmar</button>
+            <button type="button" id="btnCancelarRetiro">Cancelar</button>
+        </form>
+    </section>
+
+    <!-- Formulario transferencia -->
+    <section id="seccionTransferencia" class="oculto">
+        <h2>Transferir Dinero</h2>
+        <form id="formTransferencia">
+            <input type="text" id="inputUsuarioDestino" placeholder="Usuario destino" required />
+            <input type="number" id="inputMontoTransferencia" placeholder="Monto a transferir" min="0.01" step="0.01" required />
+            <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px;">
+            <button type="submit">Transferir</button>
+            <button type="button" id="btnCancelarTransferencia">Cancelar</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Sección para mostrar movimientos -->
+    <section id="seccionMovimientos" class="oculto">
+        <h2>Movimientos</h2>
+        <ul id="listaMovimientos"></ul>
+        <button id="btnVolverDesdeMovimientos">Volver</button>
+    </section>
+
+    <!-- Sección para cambiar contraseña -->
+    <section id="seccionCambioPassword" class="oculto">
+        <h2>Cambiar Contraseña</h2>
+        <form id="formCambioPassword">
+            <input
+                type="password"
+                id="contraseñaActual"
+                placeholder="Contraseña actual"
+                required
+            />
+            <input
+                type="password"
+                id="contraseñaNueva"
+                placeholder="Nueva contraseña (4 dígitos)"
+                required
+            />
+            <input
+                type="password"
+                id="ConfirmarContraseña"
+                placeholder="Confirmar contraseña"
+                required
+            />
+            <button type="submit">Guardar</button>
+            <button type="button" id="btnCancelarCambioPassword">Cancelar</button>
+        </form>
+    </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
